@@ -32,7 +32,7 @@ def create_order(
 
 
 @transaction.atomic
-def get_orders(username: str = None) -> QuerySet:
+def get_orders(username: str = None) -> QuerySet[Order]:
     orders = Order.objects.all()
     if username is not None:
         return orders.filter(user__username=username)
